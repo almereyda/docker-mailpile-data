@@ -7,24 +7,25 @@ This is a simple data volume for substituting data storage inside of a [Mailpile
 Change to a directory where you keep your git repositories, i.e.
 
 ```
-cd && mkdir src && cd src
+cd
+if [ ! -d "src" ]; then
+  mkdir src
+fi
+cd src
 ```
 
 Clone the **Mailpile** and **docker-mailpile-data** repositories:
 
 ```
-git clone https://github.com/pagekite/Mailpile.git mailpile-daemon
+git clone https://github.com/almereyda/Mailpile.git mailpile-daemon
 git clone https://github.com/almereyda/docker-mailpile-data.git mailpile-data
 ```
 
 Then build the respective docker images.
 
 ```
-cd mailpile-daemon && \
-  docker build -t mailpile:daemon && \
-  cd .. && \
-  cd mailpile-data && \
-  docker build -t mailpile:data
+docker build -t mailpile:daemon mailpile-daemon
+docker build -t mailpile:data mailpile-data
 ```
 
 Finally run the `mailpile:data` image to create a data-only `mailpile_data` container which is linked with a newly created `mailpile_daemon` container based on the `mailpile:daemon` image created above.
