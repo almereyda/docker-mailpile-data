@@ -8,7 +8,8 @@ After you successfully built a Mailpile Docker image, instead of starting it as 
 
 ```
 docker build -t mailpile:data .
-docker run -d --volumes-from="mailpile:data" -p 33411:33411 mailpile
+docker run --name="mailpile_data" mailpile:data
+docker run -d --volumes-from="mailpile_data" -p 33411:33411 mailpile
 ```
 
 ### Licence
