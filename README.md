@@ -7,7 +7,7 @@ This is a simple data volume for substituting data storage inside of a [Mailpile
 Change to a directory where you keep your git repositories, i.e.
 
 ```
-cd /usr/src
+cd && mkdir src && cd src
 ```
 
 Clone the **Mailpile** and **docker-mailpile-data** repositories:
